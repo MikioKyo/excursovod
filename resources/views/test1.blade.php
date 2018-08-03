@@ -10,8 +10,8 @@
 <div id="app" style="width: 100%;height: 94.5%;margin: -20px 0 0px 0;">
     <l-map :zoom=13 :center="center" @click="onMapClick">
       <l-tile-layer url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"></l-tile-layer>
-      <l-marker v-for="item in markers" :key="item.id" :lat-lng="item.latlng" @click="openPopup">
-        <l-popup :key="item.id" :content="item.text" :options="{ autoClose: false, closeOnClick: true }"></l-popup>
+      <l-marker v-for="item in markers" :lat-lng="item.latlng" @click="openPopup">
+        <l-popup :content="item.text" :options="{ autoClose: false, closeOnClick: true }"></l-popup>
       </l-marker>
     </l-map>
 </div>
@@ -30,19 +30,23 @@
                     marker: L.latLng(47.413220, -1.219482),
                     markers: [
                         {
-                            id: 2,
                             latlng: L.latLng(47.417220, -1.24),
                             content: 'Another',
                             text: 'хоба'
                         }
                     ]
                 },
+                
+                mounted() {
+                    this.getMarkers();
+                    console.log(this);
+                },
+
                 methods: {
                     onMapClick(e) {
                         // alert("You clicked the map at " + e.latlng);
                         this.markers.push(
                             {
-                                id: 2,
                                 latlng: L.latLng(e.latlng.lat, e.latlng.lng),
                                 content: 'Another',
                                 text: '123'
@@ -56,6 +60,35 @@
                           event.target.openPopup();
                       })
                     },
+
+                    getMarkers: function() {
+                        // GET /someUrl
+                        this.$http.get('/map').then(response => {
+                            
+                            this.arr = response.body.markers;
+                            for (var i = this.arr.length - 1; i >= 0; i--) {
+                                t = this.arr[i];
+                                this.markers.push(
+                                    {
+                                        latlng: L.latLng(t.lat,t.lng),
+                                        text: t.description
+                                    }
+                                );
+                            } ; 
+                            console.log("test", this.markers); 
+
+
+                            // this.markers.concat(
+                            //     response.body.markers
+                            // );
+                            // console.log(response.body.markers);
+                            
+                            // this.someData = response.body;
+
+                        }, response => {
+                            // error callback
+                        });  
+                    }
                 }
             })
         </script>
