@@ -29,6 +29,8 @@ Route::get('/test1', function () {
 
 Route::get('map', 'MarkerController@index');
 
+Route::post('map1','CreateMarkerController@store');
+
 
 
 Route::get('/signup', function () {
