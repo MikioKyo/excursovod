@@ -27,6 +27,10 @@ Route::get('/test1', function () {
     return view('test1');
 });
 
+Route::get('/upload', function() {
+    return view('upload');
+});
+
 Route::get('map', 'MarkerController@index');
 
 Route::post('map1','CreateMarkerController@store');

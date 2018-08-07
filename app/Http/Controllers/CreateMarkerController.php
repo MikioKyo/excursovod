@@ -15,12 +15,6 @@ class CreateMarkerController extends Controller
     public function store(Request $request)
     {
         $marker = new marker;
-        // $marker->name = $request->name;
-        // $marker->lat  = $request->lat;
-        // $marker->lng  = $request->lng;
-        // $marker->pic  = $request->pic;
-        // $marker->text = $request->text;
-        // $marker->save();
         $marker = [
             'name' => $request->name,
             'lat' => $request->lat,
@@ -33,4 +27,11 @@ class CreateMarkerController extends Controller
         return response()->json($request);
     }
 
+    protected function validator(array $request)
+    {
+        return Validator::make($request, [
+            'name' => 'required|string|max:50',
+            'description' => 'required|string|max:255'
+        ]);
+    }
 }

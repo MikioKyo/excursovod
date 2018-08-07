@@ -18,8 +18,8 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->text('description');
             $table->string('pic');
-            $table->float('lat',9,6)->unique();
-            $table->float('lng',9,6)->unique();
+            $table->float('lat',9,6);
+            $table->float('lng',9,6);
             $table->timestamps();
         });
     }
