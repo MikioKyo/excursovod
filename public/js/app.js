@@ -47781,25 +47781,21 @@ var render = function() {
       [
         _c("form", [
           _c(
-            "label",
+            "p",
             {
               staticClass: "btn btn-primary",
               staticStyle: { padding: "0px 0px 0px -1px", margin: "0 auto" },
-              attrs: { for: "files" }
+              attrs: { for: "files" },
+              on: { change: _vm.onFileChange }
             },
-            [
-              _vm._v("Выберите изображение...\n            "),
-              _c("input", {
-                staticStyle: {
-                  padding: "0px 0px 10px 20px",
-                  margin: "0 auto",
-                  display: "none"
-                },
-                attrs: { type: "file", id: "files" },
-                on: { change: _vm.onFileChange }
-              })
-            ]
-          )
+            [_vm._v("Выберите изображение...\n            ")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            staticStyle: { padding: "0px 0px 10px 20px", margin: "0 auto" },
+            attrs: { type: "file", id: "files" },
+            on: { change: _vm.onFileChange }
+          })
         ])
       ]
     )

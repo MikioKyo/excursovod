@@ -5,9 +5,9 @@
         </div>
         <div class="" style="overflow-wrap: break-word; overflow: hidden;">
             <form>
-                <label for="files" class="btn btn-primary" style="padding: 0px 0px 0px -1px;margin: 0 auto;">Выберите изображение...
-                <input type="file" id="files" v-on:change="onFileChange" style="padding: 0px 0px 10px 20px;margin: 0 auto;display: none;">
-                </label>
+                <p for="files" class="btn btn-primary" v-on:change="onFileChange" style="padding: 0px 0px 0px -1px;margin: 0 auto;">Выберите изображение...
+                </p>
+                <input type="file" id="files" v-on:change="onFileChange" style="padding: 0px 0px 10px 20px;margin: 0 auto;">
             </form>
         </div>
     </div>
