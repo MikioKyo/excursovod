@@ -18,13 +18,16 @@ var app = new Vue({
                 pic: 'placeholder',
                 text: 'хоба'
             }
-        ]
+        ],
+        image: '',
+        
     },
     
     mounted() {
         this.getMarkers();
         console.log(this);
     },
+    
 
     methods: {
         onMapClick(e) {
@@ -106,6 +109,28 @@ var app = new Vue({
             }, response => {
                 // error callback
             }); 
+        },
+
+        onFileChange(e) {
+            let files = e.target.files || e.dataTransfer.files;
+            if (!files.length)
+                return;
+            this.createImage(files[0]);
+        },
+
+        createImage(file) {
+            let reader = new FileReader();
+            let vm = this;
+            reader.onload = (e) => {
+                vm.image = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        },
+
+        upload(){
+            axios.post('/api/upload',{image: this.image}).then(response => {
+
+            });
         },
     }
 })

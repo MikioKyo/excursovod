@@ -47731,9 +47731,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -47758,6 +47755,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         upload: function upload() {
             axios.post('/api/upload', { image: this.image }).then(function (response) {});
+        },
+        picUpload: function picUpload() {
+            Vue.nextTick(function () {});
         }
     }
 });
@@ -47779,23 +47779,14 @@ var render = function() {
       "div",
       { staticStyle: { "overflow-wrap": "break-word", overflow: "hidden" } },
       [
-        _c("form", [
-          _c(
-            "p",
-            {
-              staticClass: "btn btn-primary",
-              staticStyle: { padding: "0px 0px 0px -1px", margin: "0 auto" },
-              attrs: { for: "files" },
-              on: { change: _vm.onFileChange }
-            },
-            [_vm._v("Выберите изображение...\n            ")]
-          ),
-          _vm._v(" "),
-          _c("input", {
-            staticStyle: { padding: "0px 0px 10px 20px", margin: "0 auto" },
-            attrs: { type: "file", id: "files" },
-            on: { change: _vm.onFileChange }
-          })
+        _c("input", {
+          staticStyle: { padding: "0px 0px 10px 20px", margin: "0 auto" },
+          attrs: { type: "file", id: "files" },
+          on: { change: _vm.onFileChange }
+        }),
+        _vm._v(" "),
+        _c("label", { attrs: { for: "files" }, on: { click: _vm.picUpload } }, [
+          _vm._v("Choose a file")
         ])
       ]
     )

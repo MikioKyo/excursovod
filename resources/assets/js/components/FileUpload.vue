@@ -3,12 +3,9 @@
         <div class="">
             <img :src="image" class="img-responsive">
         </div>
-        <div class="" style="overflow-wrap: break-word; overflow: hidden;">
-            <form>
-                <p for="files" class="btn btn-primary" v-on:change="onFileChange" style="padding: 0px 0px 0px -1px;margin: 0 auto;">Выберите изображение...
-                </p>
+        <div style="overflow-wrap: break-word; overflow: hidden;">
                 <input type="file" id="files" v-on:change="onFileChange" style="padding: 0px 0px 10px 20px;margin: 0 auto;">
-            </form>
+                <label for="files" @click="picUpload">Choose a file</label>
         </div>
     </div>
 </template>
@@ -43,6 +40,9 @@
                 axios.post('/api/upload',{image: this.image}).then(response => {
 
                 });
+            },
+            picUpload(){
+                Vue.nextTick(() => {});
             }
         }
     }

@@ -18,8 +18,12 @@
                 <textarea placeholder="Описание" v-model='item.text' style="resize: none;"  maxlength="80" cols="30"></textarea>
             </div>
             <div class="panel-body">
-            <p><b style="margin: 0 auto;max-width: 180px;max-height: 70px;display: block; word-wrap: break-word;overflow: hidden;">Картинка:</b></p>
-                <file-upload></file-upload>
+                <p><b style="margin: 0 auto;max-width: 180px;max-height: 70px;display: block; word-wrap: break-word;overflow: hidden;">Картинка:</b></p>
+                <div class="" style="max-height: 100px">
+                    <img :src="image" class="img-responsive" style="max-width: 100px;">
+                </div>
+                <input type="file" id="files" v-on:change="onFileChange" class="inputfile" style="display: none;">
+                <label for="files">Choose a file</label>
             </div>
             <button type="submit" class="btn btn-primary" style="margin: 15px 0 0px 0px;" @click="createMarker(item.name, item.text, item.latlng, item.pic)">
             Сохранить
