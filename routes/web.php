@@ -31,6 +31,12 @@ Route::get('/upload', function() {
     return view('upload');
 });
 
+Route::get('/myexcursions/add', function() {
+    return view('addnew');
+});
+
+Route::get('myexcursions', 'MarkerController@excursions');
+
 Route::get('map', 'MarkerController@index');
 
 Route::post('map1','CreateMarkerController@store');
@@ -42,4 +48,6 @@ Route::get('/signup', function () {
 });
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', function () {
+    return view('home');
+});

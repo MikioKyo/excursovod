@@ -20,6 +20,7 @@ var app = new Vue({
             }
         ],
         image: '',
+        cost: '500',
         
     },
     
@@ -70,16 +71,8 @@ var app = new Vue({
                 } ; 
                 console.log("test", this.markers); 
 
-
-                // this.markers.concat(
-                //     response.body.markers
-                // );
-                // console.log(response.body.markers);
-                
-                // this.someData = response.body;
-
             }, response => {
-                // error callback
+
             });  
         },
 

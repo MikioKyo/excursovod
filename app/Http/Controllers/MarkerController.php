@@ -14,4 +14,9 @@ class MarkerController extends Controller
             'state' => 'CA'
         ]);
     }
+
+    public function excursions() {
+        $markers = marker::all();
+        return view('myexcursions')->withmarkers($markers);
+    }
 }

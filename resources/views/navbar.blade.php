@@ -1,10 +1,16 @@
-<div>
-    <nav class="navbar navbar-default" role="navigation">
+<div style="height: 48px;">
+    <nav class="navbar navbar-default" role="navigation" style="margin-bottom: 0px;">
         <div class="navbar-header">
-            <a class="navbar-brand" href="{{ url('/') }}">
+            <a class="navbar-brand" href="{{ url('/home') }}">
                 {{ config('app.name', 'Laravel') }}
             </a>
         </div>
+        @guest
+        @else
+        <ul class="nav navbar-nav">
+            <li><a href="http://voicesofrussia.com/myexcursions">Мои экскурсии</a></li>
+        </ul>
+        @endguest
         <ul class="nav navbar-nav navbar-right">
             @guest
                 <li class="nav-item">
@@ -26,7 +32,7 @@
                             </form>
                         </li>
                     </ul>
-                </li>
+                </li>     
             @endguest
         </ul>
     </div>

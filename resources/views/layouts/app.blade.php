@@ -28,9 +28,11 @@
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
 </head>
 <body>
-    <main class="py-4">
-        @yield('content')
-    </main>
-    <script src=" {{ asset('js/vueapps.js') }}"> </script>
+    <div id='app'>
+        <main class="py-4">
+            @yield('content')
+        </main>
+    </div>
+<script src=" {{ asset('js/vueapps.js') }}"> </script>
 </body>
 </html>

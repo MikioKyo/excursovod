@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
 <div class=''></div>
     <div class='' style="padding: 55px 0 0px 120px;">
