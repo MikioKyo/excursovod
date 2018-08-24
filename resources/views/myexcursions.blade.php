@@ -19,12 +19,18 @@
 
 <div style="width: 95%;margin: 0 auto;">
     <table class="table table-hover" style="text-align: center">
-        @foreach ($markers as $marker)
-
             <tr>
-                <td> <p> {{ $marker->id   }} </p> </td>
-                <td> <P> {{ $marker->name }} </p> </td>
-                <td> <p> Создана: {{ date('M j, Y', strtotime($marker->created_at)) }} </p> </td>
+                <td> <p> Номер экскурсии </p> </td>
+                <td> <P> Название </p> </td>
+                <td> <P> Автор </p> </td>
+                <td> <p> Дата создания </p> </td>
+            </tr>
+        @foreach ($excursions as $excursion)
+            <tr>
+                <td> <p> {{ $excursion->id   }} </p> </td>
+                <td> <P> {{ $excursion->name }} </p> </td>
+                <td> <P> {{ $excursion->user_id }} </p> </td>
+                <td> <p> {{ date('M j, Y', strtotime($excursion->created_at)) }} </p> </td>
             </tr>
 
         @endforeach

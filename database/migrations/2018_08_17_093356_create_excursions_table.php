@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersTable extends Migration
+class CreateExcursionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('markers', function (Blueprint $table) {
+        Schema::create('excursions', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->string('name');
             $table->text('description');
-            $table->string('pic');
-            $table->float('lat',9,6);
-            $table->float('lng',9,6);
             $table->timestamps();
         });
     }
@@ -31,6 +30,8 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('markers');
+        Schema::disableForeignKeyConstraints();
+        Schema::dropIfExists('excursions');
+        Schema::enableForeignKeyConstraints();   
     }
 }

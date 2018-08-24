@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\marker;
 use Illuminate\Http\Request;
+use App\excursion;
+use App\User;
 
 class MarkerController extends Controller
 {
@@ -16,7 +18,8 @@ class MarkerController extends Controller
     }
 
     public function excursions() {
-        $markers = marker::all();
-        return view('myexcursions')->withmarkers($markers);
+        $excursions = excursion::all();
+        $users = User::all();
+        return view("myexcursions", ["excursions"=>$excursions], ["users"=>$users]);
     }
 }
