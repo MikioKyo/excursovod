@@ -11,7 +11,7 @@
 
 
     <!-- Scripts -->
-    <script src="{{ mix('js/app.js') }}"></script>
+	<script src="{{ mix('js/app.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
     <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css">
@@ -34,5 +34,6 @@
         </main>
     </div>
 <script src=" {{ asset('js/vueapps.js') }}"> </script>
+
 </body>
 </html>
