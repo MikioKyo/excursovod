@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('layouts.welcome');
 });
 
 Route::get('/login', function () {
@@ -41,11 +41,6 @@ Route::get('map', 'MarkerController@index');
 
 Route::post('map1','CreateMarkerController@store');
 
-
-
-Route::get('/signup', function () {
-    return view('signup');
-});
 Auth::routes();
 
 Route::get('/home', function () {
